@@ -1,0 +1,21 @@
+<h1>Listado de Heroes</h1>
+
+<div *ngIf=" heroeBorrado != '' ; else noBorrado"> <!--El *ngIf nos permite hacer una condicion ir para que sucedan cosas -->
+    <h3>Heroe Borrado: <small>{{heroeBorrado}}</small></h3>   
+</div>
+
+<ng-template #noBorrado> <!--El ng-template es una etiqueta propia de angular que muestra un fragmento de codigo html en este caso enlazado con la condicion de arriba en referencia local #noborrado-->
+    <h3>No ha borrado Nada</h3>  
+</ng-template>
+
+<button (click)="borrarHeroe()">Borrar</button>
+
+<ul>
+    <!--heroe => hace referencia a los valores que tomamos del array / heroes => es el nombre del array / el i = index hace referencia a los numeros del array-->
+    <li *ngFor="let heroe of heroes; let i = index"><!--Con el *ngFor podemos hacer un for para cargar los items de un array al html -->
+       {{i+1}} - {{heroe}}
+    </li>
+ 
+</ul>
+
+
